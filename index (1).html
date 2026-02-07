@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<title>लक्ष्मी सोलार सिस्टीम</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Marathi Font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Noto Sans Devanagari', sans-serif;
+}
+
+body{
+    background:#f4f6f5;
+    color:#333;
+}
+
+/* HERO */
+.hero{
+    height:90vh;
+    background:url('images/bg.jpg') center/cover no-repeat;
+    position:relative;
+}
+.overlay{
+    background:rgba(0,0,0,0.65);
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+}
+.overlay h1{font-size:36px;}
+.overlay p{margin-top:10px;}
+.btn{
+    margin-top:20px;
+    padding:12px 30px;
+    background:#2e7d32;
+    color:#fff;
+    text-decoration:none;
+    border-radius:30px;
+}
+
+/* SECTIONS */
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:50px 20px;
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s ease;
+}
+h2{
+    text-align:center;
+    color:#1b5e20;
+    margin-bottom:25px;
+}
+p{text-align:center;line-height:1.8;}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+    text-align:center;
+}
+.highlight{
+    background:#e8f5e9;
+    border-left:5px solid #2e7d32;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+.gallery img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:14px;
+    cursor:pointer;
+    transition:0.4s;
+}
+.gallery img:hover{
+    transform:scale(1.08);
+    box-shadow:0 15px 25px rgba(0,0,0,0.35);
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;top:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.9);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.modal img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+}
+.close{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:40px;
+    color:#fff;
+    cursor:pointer;
+}
+.nav{
+    position:absolute;
+    top:50%;
+    font-size:40px;
+    color:#fff;
+    cursor:pointer;
+    user-select:none;
+}
+.prev{left:20px;}
+.next{right:20px;}
+
+/* CALCULATOR */
+input,button{
+    padding:10px;
+    width:80%;
+    max-width:300px;
+}
+button{
+    background:#1b5e20;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+}
+
+/* MAP */
+.map iframe{
+    width:100%;
+    height:300px;
+    border:0;
+    border-radius:12px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25d366;
+    color:#fff;
+    padding:15px 18px;
+    border-radius:50%;
+    font-size:22px;
+    text-decoration:none;
+    box-shadow:0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
+footer{
+    background:#1b5e20;
+    color:#fff;
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<header class="hero">
+<div class="overlay">
+<h1>लक्ष्मी सोलार सिस्टीम</h1>
+<p>PM सूर्यघर योजना अंतर्गत विश्वासार्ह सोलार सेवा</p>
+<a href="#contact" class="btn">आजच संपर्क करा</a>
+</div>
+</header>
+
+<section>
+<h2>आमच्याबद्दल</h2>
+<p>
+लक्ष्मी सोलार सिस्टीम ही PM सूर्यघर योजना अंतर्गत घरगुती व व्यावसायिक
+सोलार सिस्टम इंस्टॉलेशन करणारी विश्वासार्ह कंपनी आहे.
+</p>
+</section>
+
+<section>
+<h2>PM सूर्यघर योजना माहिती</h2>
+<div class="grid">
+<div class="card">☀️ छतावर सोलार पॅनेल</div>
+<div class="card">💡 वीज बिलात मोठी बचत</div>
+<div class="card">📄 अर्ज व सबसिडी मदत</div>
+</div>
+</section>
+
+<section>
+<h2>Government Subsidy फायदे</h2>
+<div class="card highlight">
+💰 ₹30,000 ते ₹78,000 सबसिडी<br>
+⚡ वीज बिल जवळजवळ शून्य
+</div>
+</section>
+
+<section>
+<h2>PM सूर्यघर पात्रता कॅल्क्युलेटर</h2>
+<div class="card">
+<p>मासिक वीज वापर (युनिट):</p>
+<input type="number" id="units" placeholder="उदा. 200"><br><br>
+<button onclick="calculate()">तपासा</button>
+<p id="result"></p>
+</div>
+</section>
+
+<section>
+<h2>आमची सोलार गॅलरी</h2>
+<div class="gallery">
+<img src="images/banner.jpeg" onclick="openModal(0)">
+<img src="images/inverter.jpeg" onclick="openModal(1)">
+<img src="images/sunsathi.jpeg" onclick="openModal(2)">
+<img src="images/w1.jpeg" onclick="openModal(3)">
+<img src="images/structure.jpeg" onclick="openModal(0)">
+<img src="images/w2.jpeg" onclick="openModal(0)">
+<img src="images/w3.jpeg" onclick="openModal(0)">
+<img src="images/v1.mp4" onclick="openModal(0)">
+<img src="images/w4.jpeg" onclick="openModal(0)">
+<img src="images/wc.jpeg" onclick="openModal(0)">
+<img src="images/work1.jpg" onclick="openModal(0)">
+
+</div>
+</section>
+
+<section id="contact">
+<h2>संपर्क साधा</h2>
+<p>📞 मोबाईल: +91 9XXXXXXXXX</p>
+<p>📍 Bus Stand, Halkarni, Tal: Gadhinglaj</p>
+</section>
+
+<section class="map">
+<h2>आमचे लोकेशन</h2>
+<iframe src="https://www.google.com/maps?q=Bus+Stand+Halkarni+Gadhinglaj&output=embed"></iframe>
+</section>
+
+<footer>
+© 2026 लक्ष्मी सोलार सिस्टीम | सर्व हक्क राखीव
+</footer>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+<span class="close" onclick="closeModal()">×</span>
+<span class="nav prev" onclick="changeSlide(-1)">❮</span>
+<img id="modalImg">
+<span class="nav next" onclick="changeSlide(1)">❯</span>
+</div>
+
+<a class="whatsapp" href="https://wa.me/919XXXXXXXXX" target="_blank">💬</a>
+
+<script>
+/* Fade in */
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.style.opacity=1;
+sec.style.transform="translateY(0)";
+}
+});
+});
+
+/* Calculator */
+function calculate(){
+let u=document.getElementById("units").value;
+let r=document.getElementById("result");
+if(u<=300){
+r.innerHTML="✅ तुम्ही पात्र आहात.<br>💰 सबसिडी: ₹60,000 – ₹78,000";
+}else{
+r.innerHTML="ℹ️ अधिक क्षमतेचा सोलार सिस्टम आवश्यक आहे.";
+}
+}
+
+/* Gallery Modal */
+const images=document.querySelectorAll(".gallery img");
+let currentIndex=0;
+
+function openModal(i){
+currentIndex=i;
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalImg").src=images[currentIndex].src;
+}
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+function changeSlide(step){
+currentIndex+=step;
+if(currentIndex<0)currentIndex=images.length-1;
+if(currentIndex>=images.length)currentIndex=0;
+document.getElementById("modalImg").src=images[currentIndex].src;
+}
+</script>
+
+</body>
+</html>
