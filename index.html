@@ -5,210 +5,186 @@
 <title>लक्ष्मी सोलार सिस्टीम</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans Devanagari',sans-serif;}
-body{background:#f4f6f5;color:#333}
+body{background:#f5f7f6;color:#333}
 
 /* HERO */
 .hero{
-    height:90vh;
-    background:url('images/bg.jpeg') center/cover no-repeat;
-    position:relative;
+  height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url('images/bg.jpeg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
 }
-.overlay{
-    background:rgba(0,0,0,.65);
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:#fff;
-    padding:20px;
+.hero h1{font-size:42px;font-weight:700}
+.hero p{margin:15px 0;font-size:18px;opacity:.9}
+.hero a{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 36px;
+  background:#4caf50;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
 }
-.overlay h1{font-size:36px}
-.overlay p{margin-top:10px}
-.btn{
-    margin-top:20px;
-    padding:12px 30px;
-    background:#2e7d32;
-    color:#fff;
-    text-decoration:none;
-    border-radius:30px;
+.hero a:hover{background:#66bb6a;transform:translateY(-2px)}
+
+/* TRUST BAR */
+.trust{
+  background:#ffffff;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  padding:30px 20px;
+  text-align:center;
+}
+.trust div{
+  font-size:18px;
+  font-weight:600;
+  color:#1b5e20;
 }
 
 /* SECTIONS */
 section{
-    max-width:1100px;
-    margin:auto;
-    padding:50px 20px;
-    opacity:0;
-    transform:translateY(40px);
-    transition:.8s;
+  max-width:1100px;
+  margin:auto;
+  padding:70px 20px;
 }
-h2{text-align:center;color:#1b5e20;margin-bottom:25px}
+h2{
+  text-align:center;
+  color:#1b5e20;
+  margin-bottom:35px;
+  font-size:32px;
+}
 p{text-align:center;line-height:1.8}
 
-/* GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{
-    background:#fff;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 10px rgba(0,0,0,.1);
-    text-align:center;
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
 }
-.highlight{background:#e8f5e9;border-left:5px solid #2e7d32}
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  text-align:center;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 18px 40px rgba(0,0,0,.15);
+}
+.icon{font-size:40px;margin-bottom:15px}
 
 /* GALLERY */
 .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
 }
 .gallery img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:14px;
-    cursor:pointer;
-    transition:.4s;
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  border-radius:18px;
+  cursor:pointer;
+  transition:.4s;
 }
 .gallery img:hover{
-    transform:scale(1.08);
-    box-shadow:0 15px 25px rgba(0,0,0,.35);
+  transform:scale(1.06);
 }
 
 /* MODAL */
 .modal{
-    display:none;
-    position:fixed;
-    z-index:9999;
-    inset:0;
-    background:rgba(0,0,0,.9);
-    display:flex;
-    justify-content:center;
-    align-items:center;
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
 }
-.modal img{
-    max-width:90%;
-    max-height:90%;
-    border-radius:12px;
+.modal img{max-width:90%;max-height:90%;border-radius:14px}
+.close,.nav{
+  position:absolute;
+  color:#fff;
+  font-size:40px;
+  cursor:pointer;
 }
-.close{
-    position:absolute;
-    top:20px;
-    right:30px;
-    font-size:40px;
-    color:#fff;
-    cursor:pointer;
-}
-.nav{
-    position:absolute;
-    top:50%;
-    font-size:40px;
-    color:#fff;
-    cursor:pointer;
-}
-.prev{left:20px}
-.next{right:20px}
-
-/* CALCULATOR */
-input,button{
-    padding:10px;
-    width:80%;
-    max-width:300px;
-}
-button{
-    background:#1b5e20;
-    color:#fff;
-    border:none;
-    border-radius:6px;
-}
-
-/* MAP */
-.map iframe{
-    width:100%;
-    height:300px;
-    border:0;
-    border-radius:12px;
-}
+.close{top:20px;right:30px}
+.prev{left:20px;top:50%}
+.next{right:20px;top:50%}
 
 /* FOOTER */
 footer{
-    background:#1b5e20;
-    color:#fff;
-    text-align:center;
-    padding:15px;
-    margin-top:30px;
+  background:#1b5e20;
+  color:#fff;
+  text-align:center;
+  padding:25px;
+  margin-top:40px;
 }
 video{
   width:100%;
   border-radius:12px;
   margin-top:10px;
 }
-
 </style>
 </head>
 
 <body>
 
-<header class="hero">
-<div class="overlay">
-<h1>लक्ष्मी सोलार सिस्टीम</h1>
-<p>PM सूर्यघर योजना अंतर्गत विश्वासार्ह सोलार सेवा</p>
-<a href="#contact" class="btn">आजच संपर्क करा</a>
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>लक्ष्मी सोलार सिस्टीम</h1>
+    <p>PM सूर्यघर योजना अंतर्गत विश्वासार्ह सोलार सोल्युशन्स</p>
+    <a href="#contact">मोफत सल्ला घ्या</a>
+  </div>
 </div>
-</header>
+
+<!-- TRUST -->
+<div class="trust">
+  <div>✔ 5+ वर्षांचा अनुभव</div>
+  <div>✔ 300+ सोलार इंस्टॉलेशन</div>
+  <div>✔ PM सूर्यघर अधिकृत मार्गदर्शन</div>
+  <div>✔ सबसिडी सहाय्य</div>
+</div>
 
 <section>
-<h2>आमच्याबद्दल</h2>
-<p>
-PM सूर्यघर योजना अंतर्गत घरगुती व व्यावसायिक सोलार सिस्टम इंस्टॉलेशन.
-</p>
-</section>
-
-<section>
-<h2>PM सूर्यघर योजना माहिती</h2>
+<h2>आम्हाला का निवडावे?</h2>
 <div class="grid">
-<div class="card">☀️ छतावर सोलार पॅनेल</div>
-<div class="card">💡 वीज बिलात मोठी बचत</div>
-<div class="card">📄 अर्ज व सबसिडी मदत</div>
+  <div class="card"><div class="icon">☀️</div>उच्च दर्जाचे सोलार पॅनेल</div>
+  <div class="card"><div class="icon">📄</div>अर्ज ते सबसिडी पूर्ण सहाय्य</div>
+  <div class="card"><div class="icon">⚡</div>वीज बिलात मोठी बचत</div>
 </div>
 </section>
 
 <section>
-<h2>Government Subsidy फायदे</h2>
-<div class="card highlight">
-💰 ₹60,000 ते ₹78,000 सबसिडी<br>
-⚡ वीज बिल जवळजवळ शून्य
-</div>
+<h2>Government Subsidy</h2>
+<p>₹30,000 ते ₹78,000 पर्यंत सरकारी सबसिडी मिळण्याची संधी</p>
 </section>
 
 <section>
-<h2>PM सूर्यघर पात्रता कॅल्क्युलेटर</h2>
-<div class="card">
-<p>मासिक वीज वापर (युनिट)</p>
-<input type="number" id="units" placeholder="उदा. 200"><br><br>
-<button onclick="calculate()">तपासा</button>
-<p id="result"></p>
-</div>
-</section>
-
-<section>
-<h2>आमची सोलार गॅलरी</h2>
+<h2>आमची कामे</h2>
 <div class="gallery">
-<img src="images/banner.jpeg" onclick="openModal(0)">
-<img src="images/inverter.jpeg" onclick="openModal(1)">
-<img src="images/sunsathi.jpeg" onclick="openModal(2)">
-<img src="images/w1.jpeg" onclick="openModal(3)">
-<img src="images/w2.jpeg" onclick="openModal(4)">
-<img src="images/w3.jpeg" onclick="openModal(5)">
-<img src="images/w4.jpeg" onclick="openModal(6)">
-<img src="images/wc.jpeg" onclick="openModal(7)">
-<img src="images/work1.jpeg" onclick="openModal(9)">
+<img src="images/w1.jpeg" onclick="openModal(0)">
+<img src="images/w2.jpeg" onclick="openModal(1)">
+<img src="images/w3.jpeg" onclick="openModal(2)">
+<img src="images/w4.jpeg" onclick="openModal(3)">
+<img src="images/wc.jpeg" onclick="openModal(4)">
+<img src="images/work1.jpeg" onclick="openModal(5)">
 </div>
 </section>
 
@@ -227,63 +203,36 @@ PM सूर्यघर योजना अंतर्गत घरगुत�
 
 </section>
 
-
 <section id="contact">
 <h2>संपर्क साधा</h2>
-<p>📞 8668791551 | 8806627805 | 8698421551 | 7083125912</p>
+<p>📞 8668791551 | 8806627805</p>
 <p>📍 Bus Stand, Halkarni, Tal: Gadhinglaj</p>
 </section>
 
-<section class="map">
-<h2>आमचे लोकेशन</h2>
-<iframe src="https://www.google.com/maps?q=Bus%20Stand%20Halkarni%20Gadhinglaj&output=embed"></iframe>
-</section>
-
 <footer>
-© 2026 लक्ष्मी सोलार सिस्टीम | सर्व हक्क राखीव
+© 2026 लक्ष्मी सोलार सिस्टीम | PM सूर्यघर योजना
 </footer>
 
+<!-- MODAL -->
 <div id="modal" class="modal">
 <span class="close" onclick="closeModal()">×</span>
-<span class="nav prev" onclick="changeSlide(-1)">❮</span>
+<span class="nav prev" onclick="change(-1)">❮</span>
 <img id="modalImg">
-<span class="nav next" onclick="changeSlide(1)">❯</span>
+<span class="nav next" onclick="change(1)">❯</span>
 </div>
 
 <script>
-const sections=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-sections.forEach(s=>{
-if(s.getBoundingClientRect().top<window.innerHeight-100){
-s.style.opacity=1;
-s.style.transform="translateY(0)";
+const imgs=document.querySelectorAll(".gallery img");
+let i=0;
+function openModal(n){
+  i=n;
+  modal.style.display="flex";
+  modalImg.src=imgs[i].src;
 }
-});
-});
-
-function calculate(){
-let u=document.getElementById("units").value;
-let r=document.getElementById("result");
-r.innerHTML = u<=300
-? "✅ तुम्ही पात्र आहात<br>💰 सबसिडी ₹60,000 – ₹78,000"
-: "ℹ️ अधिक क्षमतेचा सोलार सिस्टम आवश्यक आहे";
-}
-
-const images=document.querySelectorAll(".gallery img");
-let current=0;
-function openModal(i){
-current=i;
-document.getElementById("modal").style.display="flex";
-document.getElementById("modalImg").src=images[current].src;
-}
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-function changeSlide(n){
-current+=n;
-if(current<0)current=images.length-1;
-if(current>=images.length)current=0;
-document.getElementById("modalImg").src=images[current].src;
+function closeModal(){modal.style.display="none";}
+function change(n){
+  i=(i+n+imgs.length)%imgs.length;
+  modalImg.src=imgs[i].src;
 }
 </script>
 
